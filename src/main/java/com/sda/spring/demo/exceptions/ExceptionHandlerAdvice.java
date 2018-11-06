@@ -2,7 +2,6 @@ package com.sda.spring.demo.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -30,7 +29,8 @@ public class ExceptionHandlerAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity inputHandleException(MethodArgumentNotValidException e){
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiError(HttpStatus.BAD_REQUEST, "Wrong data", Arrays.asList("id", "parametr"), LocalDateTime.now()));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new NotValidError(HttpStatus.BAD_REQUEST, e.getBindingResult().getAllErrors()));
 
     }
 }
