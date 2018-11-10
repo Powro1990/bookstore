@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>author</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+<h1>Add Author</h1>
+<div class="container">
+<form th:action="@{/author}" method="post" th:object="${author}">
+    <div class="form-group">
+        <label>Author Name</label>
+        <input type="text" class="form-control" th:field="*{name}" placeholder="Enter Name">
+    </div>
+    <div class="form-group">
+        <label>Author LastName</label>
+        <input type="text" class="form-control" th:field="*{lastName}" placeholder="Enter LastName">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+
+</body>
+</html>

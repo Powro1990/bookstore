@@ -41,4 +41,8 @@ public class BookService implements BookInterface {
     public void delete(Long id) {
 
     }
+
+    public Book getBookByTitle(String title) {
+        return bookRepository.findByTitle(title);
+    }
 }

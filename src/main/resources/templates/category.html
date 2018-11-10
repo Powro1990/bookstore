@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>category</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+<h1>Add Category</h1>
+<div class="container">
+<form th:action="@{/category}" method="post" th:object="${category}">
+    <div class="form-group">
+        <label>Category name</label>
+        <input type="text" class="form-control" th:field="*{name}" placeholder="Enter Category">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+
+</body>
+</html>

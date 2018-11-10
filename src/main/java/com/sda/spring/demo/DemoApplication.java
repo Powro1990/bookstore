@@ -3,6 +3,7 @@ package com.sda.spring.demo;
 import com.sda.spring.demo.model.Author;
 import com.sda.spring.demo.model.Book;
 import com.sda.spring.demo.model.Category;
+import com.sda.spring.demo.model.Person;
 import com.sda.spring.demo.repository.AuthorRepository;
 import com.sda.spring.demo.repository.BookRepository;
 import com.sda.spring.demo.repository.CategoryRepository;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -19,6 +21,8 @@ import java.util.Set;
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
+    @Autowired
+    private ApplicationContext applicationContext;
 
     private BookRepository bookRepository;
     private CategoryRepository categoryRepository;
@@ -37,6 +41,10 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+        Person person = applicationContext.getBean(Person.class);
+        person.setName("JAN");
+
         Set<Author> authorSet = new HashSet<>();
         authorSet.add(new Author("Zenek","Zenkowski"));
         Book book = new Book();

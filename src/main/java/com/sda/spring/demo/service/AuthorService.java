@@ -42,4 +42,8 @@ public class AuthorService implements AuthorInterface {
     public void delete(Long id) {
 
     }
+
+    public Author getAuthorByName(String name){
+        return authorRepository.findByName(name);
+    }
 }

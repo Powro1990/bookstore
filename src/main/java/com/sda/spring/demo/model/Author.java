@@ -40,4 +40,20 @@ public class Author {
     public String getLastName() {
         return lastName;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setBookSet(Set<Book> bookSet) {
+        this.bookSet = bookSet;
+    }
 }
